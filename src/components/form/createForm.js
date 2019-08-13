@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/form/createForm.css';
+import '../../styles/form/createForm.css';
 
 function CreateForm() {
     const [options, setOptions] = useState([]);
@@ -35,6 +35,7 @@ function CreateForm() {
 
     return (
         <div>
+
             <form onSubmit={handleSubmit} id="form-itself">
                 <label>email</label>
                 <input type="text" name="" id="itself-inp"/>
@@ -53,10 +54,8 @@ function CreateForm() {
                 })}
 
                 <input type="submit" id='btn-submit' value="Create Form"/> 
-            </form>    
+            </form>   
 
-
-            
             <form onSubmit={handleAddOption} id="form-itself">
                 
                 <label>Add a field label</label>

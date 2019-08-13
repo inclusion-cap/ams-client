@@ -52,7 +52,7 @@ export default class LoginForm extends Component {
                     id="45"
                     type="text"
                     onChange={this.onChange("username")}
-                    className="form-input"/>
+                    id="form-input"/>
 
                 </li> 
                 <p className="form-label"> Password </p>
@@ -61,7 +61,7 @@ export default class LoginForm extends Component {
                     id="3"
                     type="password" 
                     onChange={this.onChange("password")} 
-                    className="form-input"/> 
+                    id="form-input"/> 
                     <li onClick={this.handleSubmit} className="button-log-submit"> 
                         <input type="submit" value="sign in"/> 
                     </li>
