@@ -13,6 +13,10 @@ function CreateForm() {
 
     function handleSubmit(e) {
         e.preventDefault();
+
+        if (options.length > 0) {
+            
+        }
     }
 
     function handleAddOption(e) {
@@ -37,8 +41,11 @@ function CreateForm() {
         <div>
 
             <form onSubmit={handleSubmit} id="form-itself">
-                <label>email</label>
+                <label>Create a form for your campaign</label>
+                <br/>
+                <label>Campaign Name</label>
                 <input type="text" name="" id="itself-inp"/>
+                <br/>
                 {options.map((option, ind) => {
                     return  option.tagType !== "checkbox" ? ( 
                         <div key={ind} id="new-inp-cont">
@@ -46,7 +53,7 @@ function CreateForm() {
                             <option.tagSpecifier id="itself-inp" type={`${option.tagType}`} />
                         </div>
                     ) : (
-                        <div key={ind} >
+                        <div key={ind} style={{'display': 'flex'}}>
                             <option.tagSpecifier id="itself-checkbox" type={`${option.tagType}`} />
                             <label>{option.label}</label>
                         </div>
