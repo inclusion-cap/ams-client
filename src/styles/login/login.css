@@ -1,0 +1,23 @@
+.form-container {
+    display: flex;
+    margin: auto;
+    width: 400px;
+    /* height: 30px; */
+    padding: 30px 10px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #eeeff2;
+    margin-top: 60px;
+    text-align: center;
+    
+    /* justify-content: flex-end; */
+}   
+
+.form-components {
+    padding: 5px;
+    margin: 5px;
+    align-self: center;
+    transition: border-color 0.4s;
+    box-sizing: border-box;
+}
