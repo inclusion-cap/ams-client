@@ -44,10 +44,12 @@ const campaigns = [
 
 function CampaignsAll(props) {
   const mapCampaigns = campaigns.map(c => (
-    <div className="div-link" key={c.id}><Link to={{ pathname: `/campaigns/${c.id}`, state: { campaign: c } }} >
-      <h2>{c.name}</h2>
-      <p>Submissions: {c.submissions.length}</p>
-    </Link></div>));
+    <div className="div-link" key={c.id}>
+      <Link to={`/campaigns/${c.id}`} >
+        <h2>{c.name}</h2>
+        <p>Submissions: {c.submissions.length}</p>
+      </Link>
+    </div>));
 
   return (
     <div className="index-container">

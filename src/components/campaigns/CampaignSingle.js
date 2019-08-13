@@ -8,12 +8,16 @@ class CampaignSingle extends React.Component {
     this.campaignDefault = {
       id: 1,
       name: 'c1',
-      fields: {},
+      fields: [
+        { label: 'l1', type: 't1' },
+        { label: 'l2', type: 't2' },
+        { label: 'l3', type: 't3' },
+      ],
       submissions: [
-        { id: 'a', email: 'a@a.a', status: 'a', content: ['a', 'b', 'c'] },
-        { id: 'A', email: 'A@A.A', status: 'A', content: ['A', 'b', 'c'] },
-        { id: 'C', email: 'C@C.C', status: 'C', content: ['C', 'b', 'c'] },
-        { id: 'D', email: 'D@D.D', status: 'D', content: ['D', 'b', 'c'] },
+        { id: 'a', campaign_id: 1, email: 'a@a.a', status: 'a', content: ['a', 'b', 'c'] },
+        { id: 'A', campaign_id: 1, email: 'A@A.A', status: 'A', content: ['A', 'b', 'c'] },
+        { id: 'C', campaign_id: 1, email: 'C@C.C', status: 'C', content: ['C', 'b', 'c'] },
+        { id: 'D', campaign_id: 1, email: 'D@D.D', status: 'D', content: ['D', 'b', 'c'] },
       ]
     }
   }
@@ -34,7 +38,7 @@ class CampaignSingle extends React.Component {
   render() {
     const campaign = this.campaignDefault;
     const mapSubmissions = campaign.submissions.map(sub => (
-      <div className="div-link" key={sub.id}><Link to={`/submissions/${sub.id}`}>
+      <div className="div-link" key={sub.id}><Link to={{ pathname: `/campaigns/${sub.campaign_id}/submissions/${sub.id}`, state: { campaign: campaign } }}>
         <h2>{sub.email}</h2>
         <p>Status: {sub.status}</p>
       </Link>

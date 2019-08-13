@@ -6,6 +6,7 @@ import {
 import LoginFormContainer from './components/auth/loginFormContainer';
 import CampaignsAll from './components/campaigns/CampaignsAll';
 import CampaignSingle from './components/campaigns/CampaignSingle';
+import SubmissionSingle from './components/campaigns/SubmissionSingle';
 
 import { AuthRoute, ProtectedRoute, FeedRoute } from './utils/routeUtils';
 
@@ -18,6 +19,7 @@ class App extends Component {
           <AuthRoute exact path="/" component={LoginFormContainer} />
           <Route exact path="/campaigns" component={CampaignsAll} />
           <Route exact path="/campaigns/:id" component={CampaignSingle} />
+          <Route exact path="/campaigns/:id/submissions/:subid" component={SubmissionSingle} />
         </Switch>
 
 
