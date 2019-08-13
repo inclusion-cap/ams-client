@@ -49,24 +49,24 @@ export default class LoginForm extends Component {
                 <li className="form-components">
                 
                     <input
-                    id="45"
+                    key="45"
                     type="text"
                     onChange={this.onChange("username")}
                     id="form-input"/>
 
                 </li> 
                 <p className="form-label"> Password </p>
-                <li className="form-components">
+                <div className="form-components">
                     <input 
-                    id="3"
+                    key="3"
                     type="password" 
                     onChange={this.onChange("password")} 
                     id="form-input"/> 
-                    <li onClick={this.handleSubmit} className="button-log-submit"> 
+                    <div onClick={this.handleSubmit} className="button-log-submit"> 
                         <input type="submit" value="sign in"/> 
-                    </li>
+                    </div>
 
-                </li>
+                </div>
             </form>
         </div>
     )

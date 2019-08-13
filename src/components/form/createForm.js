@@ -68,8 +68,8 @@ function CreateForm() {
                 <label>Add a field label</label>
                 <input type="text" onChange={onChange('label')} id="itself-inp"/>
 
-                <select onChange={onChange('option')} id="add-select">
-                    <option disabled selected></option>
+                <select onChange={onChange('option')} defaultValue={'DEFAULT'} id="add-select">
+                    <option value="DEFAULT" disabled></option>
                     <option value="text input">Text input</option>
                     <option value="text area">Text area</option>
                     <option value="checkbox">Checkbox</option>

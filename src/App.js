@@ -15,8 +15,8 @@ render() {
       <div>
         <Switch>
           {/* <AuthRoute exact path="/" component={ LoginFormContainer } /> */}
-          {/* <AuthRoute exact path="/" component={ CreateForm } /> */}
-          <AuthRoute exact path="/" component={ FormShow } />
+          <AuthRoute exact path="/" component={ CreateForm } />
+          {/* <AuthRoute exact path="/" component={ FormShow } /> */}
           {/* <ProtectedRoute exact path="/campaigns" component={  } /> */}
         </Switch>
 
