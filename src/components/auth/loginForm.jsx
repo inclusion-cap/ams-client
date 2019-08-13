@@ -7,7 +7,8 @@ export default class LoginForm extends Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      type: "input"
     };
     this.handleSubmit = this
       .handleSubmit
@@ -47,11 +48,11 @@ export default class LoginForm extends Component {
                 <p className="form-label">Username</p> 
                 <li className="form-components">
                 
-                <input
-                id="45"
-                type="text"
-                onChange={this.onChange("username")}
-                className="form-input"/>
+                    <input
+                    id="45"
+                    type="text"
+                    onChange={this.onChange("username")}
+                    className="form-input"/>
 
                 </li> 
                 <p className="form-label"> Password </p>
@@ -64,6 +65,7 @@ export default class LoginForm extends Component {
                     <li onClick={this.handleSubmit} className="button-log-submit"> 
                         <input type="submit" value="sign in"/> 
                     </li>
+
                 </li>
             </form>
         </div>

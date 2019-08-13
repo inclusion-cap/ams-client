@@ -2,7 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import App from './App';
-import './styles/removeStyles.css';
 
 // we pass in the store as a prop from parent 
 // the store is used in the provider tag to connect 

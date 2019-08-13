@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore  from './store/store';
 import {Root} from './root';
+import './styles/removeStyles.css';
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');

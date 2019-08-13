@@ -17,7 +17,22 @@ button, input[type="submit"], input[type="reset"], input[type="file"] {
 	cursor: pointer;
 	outline: inherit;
 }
-
+input[type="text"] {
+    background: none;
+	color: inherit;
+	padding: 0;
+	font: inherit;
+	cursor: text;
+	outline: inherit;
+}
+textarea {
+    background: none;
+	color: inherit;
+	padding: 0;
+	font: inherit;
+	cursor: text;
+	outline: inherit;
+}
 
 li  {
     list-style-type: none;
