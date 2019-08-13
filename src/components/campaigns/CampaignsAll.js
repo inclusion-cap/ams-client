@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import '../../styles/displayAll.css';
+
 const campaigns = [
   {
     id: 1,
@@ -42,15 +44,15 @@ const campaigns = [
 
 function CampaignsAll(props) {
   const mapCampaigns = campaigns.map(c => (
-    <Link className="div-link" key={c.id} to={{ pathname: `/campaigns/${c.id}`, state: { campaign: c } }} >
+    <div className="div-link" key={c.id}><Link to={{ pathname: `/campaigns/${c.id}`, state: { campaign: c } }} >
       <h2>{c.name}</h2>
-      <div>Submissions: {c.submissions.length}</div>
-    </Link>));
+      <p>Submissions: {c.submissions.length}</p>
+    </Link></div>));
 
   return (
-    <ul className="index-container">
+    <div className="index-container">
       {mapCampaigns}
-    </ul>
+    </div>
   );
 }
 

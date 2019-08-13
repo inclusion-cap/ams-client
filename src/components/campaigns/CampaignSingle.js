@@ -34,15 +34,16 @@ class CampaignSingle extends React.Component {
   render() {
     const campaign = this.campaignDefault;
     const mapSubmissions = campaign.submissions.map(sub => (
-      <Link className="div-link" key={sub.id} to={`/submissions/${sub.id}`}>
+      <div className="div-link" key={sub.id}><Link to={`/submissions/${sub.id}`}>
         <h2>{sub.email}</h2>
-        <div>Status: {sub.status}</div>
-      </Link>));
+        <p>Status: {sub.status}</p>
+      </Link>
+      </div>));
 
     return (
-      <ul className="index-container">
+      <div className="index-container">
         {mapSubmissions}
-      </ul>
+      </div>
     );
   }
 }
