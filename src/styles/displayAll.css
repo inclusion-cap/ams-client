@@ -5,13 +5,10 @@ li {
 .index-container {
   margin: 0 auto;
   text-align: center;
+  max-width: 550px;
 }
 
-/* #all-campaigns-container > .div-link {
-  text-decoration: none;
-} */
-
-.index-container > .div-link {
+.div-link {
   margin: 1em 2em;
   background-color: lightblue;
   border-radius: 10px;

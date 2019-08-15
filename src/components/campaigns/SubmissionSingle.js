@@ -1,7 +1,5 @@
 import React from 'react';
 
-import SubmissionFields from './SubmissionFields'
-
 class SubmissionSingle extends React.Component {
   constructor(props) {
     super(props);
@@ -27,25 +25,25 @@ class SubmissionSingle extends React.Component {
     const campaign = this.campaignDefault;
     const submission = this.submissionDefault;
 
-    // const mapFields = (parent, sub) => {
-    //   let res = [];
-    //   let temp;
+    const mapFields = (parent, sub) => {
+      let res = [];
+      let temp;
 
-    //   for (let i = 0; i < sub.content.length; i++) {
-    //     temp = (<div className="div-link" key={'con - ' + i}>
-    //       <p><b>{parent.fields[i]}</b></p>
-    //       <p>{sub.content[i]}</p>
-    //     </div>)
-    //     res.push(temp)
-    //   }
-    //   return res.map(s => s);
-    // }
+      for (let i = 0; i < sub.content.length; i++) {
+        temp = (<div className="div-link" key={'con - ' + i}>
+          <p><b>{parent.fields[i].label}</b></p>
+          <p>{sub.content[i]}</p>
+        </div>)
+        res.push(temp)
+      }
+      return res.map(s => s);
+    }
 
-    // const displayFields = mapFields(campaign, submission);
+    const displayFields = mapFields(campaign, submission);
 
     return (
       <div className="index-container">
-        <SubmissionFields props={{ campaign: campaign, submission: submission }} />
+        {displayFields}
       </div>
     );
   }
