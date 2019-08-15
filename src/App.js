@@ -11,16 +11,19 @@ import SubmissionSingle from './components/campaigns/SubmissionSingle';
 
 import { AuthRoute, ProtectedRoute, FeedRoute } from './utils/routeUtils';
 import FormShow from './components/form/formShow';
+
+import Navbar from './components/Navbar'
 import './styles/removeStyles.css';
 
 class App extends Component {
 
-render() {
+  render() {
     return (
       <div>
+        <Navbar />
         <Switch>
           {/* <AuthRoute exact path="/" component={ LoginFormContainer } /> */}
-          <AuthRoute exact path="/formCreate" component={ CreateForm } />
+          <AuthRoute exact path="/formCreate" component={CreateForm} />
           {/* <AuthRoute exact path="/" component={ FormShow } /> */}
           {/* <ProtectedRoute exact path="/campaigns" component={  } /> */}
 

@@ -1,0 +1,16 @@
+#nav-bar {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#nav-bar > a {
+  background-color: rgb(64, 189, 64);
+  margin: 0 1em;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  color: white;
+}
+
+#nav-bar > a:hover {
+  background: rgba(64, 189, 64,0.7);
+}
