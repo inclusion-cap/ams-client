@@ -11,6 +11,7 @@ function CreateForm() {
         'date': {tagSpecifier: 'input', tagType: 'date'}
     });
 
+
     function handleSubmit(e) {
         e.preventDefault();
 

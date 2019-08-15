@@ -6,7 +6,7 @@ import '../../styles/displayAll.css';
 const campaigns = [
   {
     id: 1,
-    name: 'c1',
+    name: 'Inclusion Hire Campaign',
     fields: {},
     status: 'here',
     submissions: [
@@ -18,7 +18,7 @@ const campaigns = [
   },
   {
     id: 2,
-    name: 'c2',
+    name: 'Inclusion Prospective Applicant Campaign',
     fields: {},
     status: 'here',
     submissions: [
@@ -30,7 +30,7 @@ const campaigns = [
   },
   {
     id: 3,
-    name: 'c3',
+    name: 'Other Campaign',
     fields: {},
     status: 'here',
     submissions: [
@@ -43,6 +43,7 @@ const campaigns = [
 ]
 
 function CampaignsAll(props) {
+  
   const mapCampaigns = campaigns.map(c => (
     <div className="div-link" key={c.id}>
       <Link to={`/campaigns/${c.id}`} >
@@ -53,6 +54,7 @@ function CampaignsAll(props) {
 
   return (
     <div className="index-container">
+      <Link to={'/formCreate'} className="campaign-btn">Create a Campaign</Link>
       {mapCampaigns}
     </div>
   );

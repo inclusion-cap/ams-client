@@ -3,11 +3,11 @@ import { login } from '../../actions/loginActions';
 import LoginForm from './loginForm';
 
 
-const mdp = dispatch => {
+const mapDispatchToProps = dispatch => {
 
   return {
       login: (user) => dispatch(login(user))
   };
 };
 
-export default connect(null, mdp)(LoginForm);
+export default connect(null, mapDispatchToProps)(LoginForm);

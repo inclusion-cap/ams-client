@@ -11,6 +11,7 @@ import SubmissionSingle from './components/campaigns/SubmissionSingle';
 
 import { AuthRoute, ProtectedRoute, FeedRoute } from './utils/routeUtils';
 import FormShow from './components/form/formShow';
+import './styles/removeStyles.css';
 
 class App extends Component {
 
@@ -19,7 +20,7 @@ render() {
       <div>
         <Switch>
           {/* <AuthRoute exact path="/" component={ LoginFormContainer } /> */}
-          {/* <AuthRoute exact path="/" component={ CreateForm } /> */}
+          <AuthRoute exact path="/formCreate" component={ CreateForm } />
           {/* <AuthRoute exact path="/" component={ FormShow } /> */}
           {/* <ProtectedRoute exact path="/campaigns" component={  } /> */}
 
