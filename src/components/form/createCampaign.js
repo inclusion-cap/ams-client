@@ -7,7 +7,7 @@ import { addCampaign } from '../../utils/otherUtil';
 
 
 
-function CreateCampaign() {
+function CreateCampaign(props) {
     const [name, setName] = useState("");
     const [options, setOptions] = useState([
         {
@@ -32,9 +32,10 @@ function CreateCampaign() {
 
     function handleSubmit(e) {
         e.preventDefault();
-
-        if (options.length > 2  && name !== "") {
-            addCampaign({name: name, fields: options, submissions: []});
+        
+        // console.log(options, name);
+        if (options.length > 2  && name.length > 0) {
+            addCampaign({name: name, fields: options, submissions: []}).then(() => props.history.push("/campaigns"));
         }
     }
 

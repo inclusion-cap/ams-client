@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {login} from '../../utils/otherUtil';
+
 import '../../styles/login/login.css';
 
 
@@ -15,6 +17,10 @@ export default class LoginForm extends Component {
       .bind(this);
 
   }
+  componentDidMount() {
+
+  }
+
   componentDidUpdate(e) {
 
     // if (this.props.location.pathname !== e.location.pathname) {
@@ -28,10 +34,8 @@ export default class LoginForm extends Component {
     e.preventDefault();
     // console.log(this.props)
     const user = Object.assign({}, this.state);
-
-    this.props.login(user)
-    .then(() => this.props.history.push('/campaigns'));
-      
+    login().then(e => this.props.history.push('/campaigns'));
+    
   }
 
   onChange(type) {

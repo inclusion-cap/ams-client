@@ -25,6 +25,31 @@ app.use(pino);
 //   res.setHeader('Content-Type', 'application/json');
 //   res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
 // });
+app.post('/login', (req, res) => {
+
+    let file = data;
+
+    file.set("Admin.loggedIn", true);
+    file.save();
+    res.send("Successful");
+});
+
+app.post('/logout', (req, res) => {
+
+    let file = data;
+
+    file.set("Admin.loggedIn", false);
+    file.save();
+
+    res.send("Successful");
+});
+
+app.get('/login', (req, res) => {
+
+    let file = data;
+
+    res.send(file.get("Admin.loggedIn"));
+});
 
 
 app.get('/api/users/:userId', (req, res) => {
@@ -39,7 +64,7 @@ app.get('/api/users/:userId', (req, res) => {
 app.get('/allCampaigns', (req, res) => {
     let campaigns = Object.values(data.get().Campaign);
     
-
+    // debugger
     console.log(data.get().Campaign);
     // debugger
     res.send(JSON.stringify(campaigns));
@@ -100,6 +125,36 @@ app.post('/changeStatus', (req, res) => {
     file.save();
 
     res.send('successfull');
+
+});
+
+app.get('/submissions/:subId/comments', (req, res) => {
+    let file = data;
+    let admin = file.get("Admin");
+    let comments = file.get("Comment");
+    let submission = file.get(`Submission.${req.params.subId}`);
+    let commentIds = submission.comments;
+    // let adminName = .name;
+    let subComments = [];
+    for (let i = 0; i < commentIds.length; i++) {
+        let comObj = comments[commentIds[i]];
+        comObj.adminName = admin[comObj.admin_id].username;
+        subComments.push(comObj);
+    }
+    res.send(JSON.stringify({subComments: subComments}));
+
+});
+
+app.post('/submissions/:subId/addComment', (req, res) => {
+    let file = data;
+    let id = Math.floor((Math.random() * 1000000));
+    file.toObject().Submission[req.params.subId].comments.push(id);
+    file.toObject().Admin[req.body.admin_id].comments.push(id);
+    let adminName = file.toObject().Admin[req.body.admin_id].username;
+    file.set(`Comment.${[id]}`, {id: id, ...req.body});
+    file.save();
+    // debugger
+    res.send({id: id, adminName: adminName ,...req.body});
 
 });
 

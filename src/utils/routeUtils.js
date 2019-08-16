@@ -2,10 +2,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route, withRouter } from 'react-router-dom';
+import { getLogin } from './otherUtil';
+
 
 const mapStateToProps = state => {
+  let loggedIn = false;
+  getLogin().then(e => {
+    loggedIn = Boolean(e);
+  });
+  console.log(loggedIn);
   return {
-    loggedIn: Boolean(state.login.id),
+    loggedIn: loggedIn,
   };
 };
 
@@ -13,7 +20,7 @@ const Auth = ({component: Component, path, loggedIn, exact}) => (
   
   <Route path={path} exact={exact} render={(props) => (
     loggedIn ? (
-      <Redirect to="/" /> 
+      <Redirect to="/campaigns" /> 
     ) : (
       <Component {...props} />
     )

@@ -27,10 +27,10 @@ class App extends Component {
         <Switch>
           {/* <ProtectedRoute exact path="/campaigns" component={  } /> */}
 
-          <AuthRoute exact path="/" component={LoginFormContainer} />
+          <Route exact path="/" component={LoginFormContainer} />
           <Route exact path="/campaigns" component={CampaignsAll} />
           <Route exact path="/formCreate" component={CreateCampaign} /> 
-          <AuthRoute exact path="/campaignForm/:id" component={ CampaignShow } />
+          <Route exact path="/campaignForm/:id" component={ CampaignShow } />
           <Route exact path="/campaigns/:id" component={CampaignSingle} />
           <Route exact path="/campaigns/:id/submissions/:subid" component={SubmissionSingle} />
 
