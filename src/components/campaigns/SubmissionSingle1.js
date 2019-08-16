@@ -67,7 +67,7 @@ function SubmissionSingle() {
                 {comments.map((el, i) => {
                     return (
                         <div className="cmt-cnt-2">
-                            <p style={{'font-weight':'bold'}}>{el.name}</p>
+                            <p style={{'fontWeight':'bold'}}>{el.name}</p>
                             <p>{el.body}</p>
                         </div>
                     );

@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {getCampaignSubmissions} from '../../utils/otherUtil';
 
 class CampaignSingle extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      campaignName: "",
+      submissions: []
+    };
     this.campaignDefault = {
       id: 1,
       name: 'Inclusion Hire Campaign',
@@ -33,12 +37,19 @@ class CampaignSingle extends React.Component {
     //   }
     // } else {
     // }
-  }
+    console.log(this.props);
+    getCampaignSubmissions(this.props.match.params.id).then(subs => {
+        console.log(JSON.parse(subs));
+        let parsedSubs = JSON.parse(subs);
+        this.setState({campaignName: parsedSubs.name, submissions: parsedSubs.subs});
+    });
+  } 
 
   render() {
     const campaign = this.campaignDefault;
-    const mapSubmissions = campaign.submissions.map(sub => (
-      <div className="div-link" key={sub.id}><Link to={{ pathname: `/campaigns/${sub.campaign_id}/submissions/${sub.id}`, state: { campaign: campaign } }}>
+    const mapSubmissions = this.state.submissions.map(sub => (
+      <div className="div-link" key={sub.id}>
+      <Link to={{ pathname: `/campaigns/${sub.campaign_id}/submissions/${sub.id}`, state: { campaign: campaign } }}>
         <h3>Name: {sub.name}</h3>
         <h3>Email: {sub.email}</h3>
         <p>Status: {sub.status}</p>
@@ -47,7 +58,7 @@ class CampaignSingle extends React.Component {
 
     return (
       <div className="index-container">
-      <h2>{this.campaignDefault.name}</h2>
+      <h2>{this.state.campaignName}</h2>
         {mapSubmissions}
       </div>
     );

@@ -1,52 +1,32 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+// import {fetchAllCampaigns} from '../../actions/Actions';
 
 import '../../styles/displayAll.css';
-
-const campaigns = [
-  {
-    id: 1,
-    name: 'Inclusion Hire Campaign',
-    fields: {},
-    status: 'here',
-    submissions: [
-      { id: 'a', email: 'a@a.a', status: 'a', content: ['a', 'b', 'c'] },
-      { id: 'A', email: 'A@A.A', status: 'A', content: ['A', 'b', 'c'] },
-      { id: 'C', email: 'C@C.C', status: 'C', content: ['C', 'b', 'c'] },
-      { id: 'D', email: 'D@D.D', status: 'D', content: ['D', 'b', 'c'] },
-    ]
-  },
-  {
-    id: 2,
-    name: 'Inclusion Prospective Applicant Campaign',
-    fields: {},
-    status: 'here',
-    submissions: [
-      { id: 'a', email: 'a@a.a', status: 'a', content: ['a', 'b', 'c'] },
-      { id: 'A', email: 'A@A.A', status: 'A', content: ['A', 'b', 'c'] },
-      { id: 'C', email: 'C@C.C', status: 'C', content: ['C', 'b', 'c'] },
-      { id: 'D', email: 'D@D.D', status: 'D', content: ['D', 'b', 'c'] },
-    ]
-  },
-  {
-    id: 3,
-    name: 'Other Campaign',
-    fields: {},
-    status: 'here',
-    submissions: [
-      { id: 'a', email: 'a@a.a', status: 'a', content: ['a', 'b', 'c'] },
-      { id: 'A', email: 'A@A.A', status: 'A', content: ['A', 'b', 'c'] },
-      { id: 'C', email: 'C@C.C', status: 'C', content: ['C', 'b', 'c'] },
-      { id: 'D', email: 'D@D.D', status: 'D', content: ['D', 'b', 'c'] },
-    ]
-  },
-]
+import { fetchAllCampaigns } from '../../utils/otherUtil';
 
 function CampaignsAll(props) {
+
+  const [campaigns, setCampaigns] = useState([]);
+
+  useEffect(() => {
+    // fetchAllCampaigns().then(data => {
+    //   console.log(data);
+    //   window.data = data;
+    // })
+    fetchAllCampaigns().then((data) => {
+      setCampaigns(JSON.parse(data));
+      console.log(JSON.parse(data));
+    });
+
+  }, []);
+
   
   const mapCampaigns = campaigns.map(c => (
     <div className="div-link" key={c.id}>
-      <Link to={`/campaigns/${c.id}`} >
+      <Link to={{pathname: `/campaigns/${c.id}`, state: {name: c.name}}} >
         <h2>{c.name}</h2>
         <p>Submissions: {c.submissions.length}</p>
       </Link>
@@ -59,5 +39,13 @@ function CampaignsAll(props) {
     </div>
   );
 }
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     fetchAllCampaigns: () => dispatch(fetchAllCampaigns())
+//   };
+// };
+
+// export default connect(null, mapDispatchToProps)(CampaignsAll);
 
 export default CampaignsAll;

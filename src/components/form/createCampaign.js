@@ -1,8 +1,26 @@
 import React, { useState, useEffect } from 'react';
+
+
 import '../../styles/campaign/createCampaign.css';
+import { addCampaign } from '../../utils/otherUtil';
+
+
+
 
 function CreateCampaign() {
-    const [options, setOptions] = useState([]);
+    const [name, setName] = useState("");
+    const [options, setOptions] = useState([
+        {
+            label: 'Name', 
+            tagSpecifier: "input",
+            tagType: "text"
+        }, 
+        {
+            label: "Email",
+            tagSpecifier: "input",
+            tagType: "text"
+        }
+    ]);
     const [form, setForm] = useState({label: '', option: ''});
     const [inputTypeTranslator] = useState({
         'text input': {tagSpecifier: 'input', tagType: 'text'},
@@ -15,8 +33,8 @@ function CreateCampaign() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        if (options.length > 0) {
-            
+        if (options.length > 2  && name !== "") {
+            addCampaign({name: name, fields: options, submissions: []});
         }
     }
 
@@ -34,9 +52,12 @@ function CreateCampaign() {
     }
     function onChange(type) {
         return (e) => {
+            console.log(e.target.value);
           setForm({...form, [type]: e.target.value});
-          console.log(e.target.value)
         };
+    }
+    function handleName(e) {
+        setName(e.target.value);
     }
 
     return (
@@ -46,7 +67,7 @@ function CreateCampaign() {
                 <label>Create a form for your campaign</label>
                 <br/>
                 <label>Campaign Name</label>
-                <input type="text" name="" id="itself-inp"/>
+                <input type="text" name="" id="itself-inp" onChange={handleName}/>
                 <br/>
                 {options.map((option, ind) => {
                     return  option.tagType !== "checkbox" ? ( 
