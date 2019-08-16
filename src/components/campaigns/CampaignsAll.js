@@ -30,6 +30,9 @@ function CampaignsAll(props) {
         <h2>{c.name}</h2>
         <p>Submissions: {c.submissions.length}</p>
       </Link>
+      <div >
+        <a className="a-link" href={`http://localhost:3000/#/campaignForm/${c.id}`}>Campaign Link</a>
+      </div>
     </div>));
 
   return (

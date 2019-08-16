@@ -1,29 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+
+import { getSubmission, changeStatus } from '../../utils/otherUtil';
+
 import '../../styles/submission/submissionSingleStyle.css';
 
-function SubmissionSingle() {
+function SubmissionSingle(props) {
     // {tagSpecifier: 'input', tagType: 'text', label: 'bla bla', content: 'yada yada'} // value if checkbox 
 
-    const [state, setState] = useState([
-        {
-            tagSpecifier: 'input',
-            tagType: 'text',
-            label: 'Name',
-            content: 'Muhammad Omar'
-        },
-        {
-            tagSpecifier: 'input',
-            tagType: 'text',
-            label: 'email',
-            content: 'omar@gmail.com'
-        }, 
-        {
-            tagSpecifier: 'input',
-            tagType: 'text',
-            label: 'favorite food?',
-            content: 'Canoli'
-        }
-    ]);
+    const [state, setState] = useState({
+        content: []
+    });
     const [comments, setComments] = useState([
         {
             name: 'Martin Freeman',
@@ -39,11 +25,26 @@ function SubmissionSingle() {
         }
     ]);
 
+    useEffect(() => {
+        // fetchAllCampaigns().then(data => {
+        //   console.log(data);
+        //   window.data = data;
+        // })
+        getSubmission(props.match.params.subid).then(e => {
+            setState(JSON.parse(e));
+            window.e = e;
+        });
+    }, []);
+
+    function handleStatus(e) {
+        changeStatus({newStat: e.target.value, id: state.id});
+    }
+
     return (
         <div id="main-container">
             <h2 style={{'textAlign':'center'}}>Campaign Name</h2>
             <br/>
-            {state.map((el, index) => {
+            {state.content.map((el, index) => {
                 return (
                     <div className="content-container" key={index}>
                         <label>{el.label}</label>
@@ -53,10 +54,10 @@ function SubmissionSingle() {
             })}
             <div className="stat-cnt">
                 <h4 >Status</h4>
-                <input type="radio" name="status" value="NEW" onClick={() => console.log("NEW")} /> NEW<br/>
-                <input type="radio" name="status" value="UNDER REVIEW"/> UNDER REVIEW<br/>
-                <input type="radio" name="status" value="ACCEPTED" /> ACCEPTED<br/> 
-                <input type="radio" name="status" value="DENIED" /> DENIED<br/> 
+                <input type="radio" name="status" value="NEW" onClick={handleStatus} /> NEW<br/>
+                <input type="radio" name="status" value="UNDER REVIEW"  onClick={handleStatus}/> UNDER REVIEW<br/>
+                <input type="radio" name="status" value="ACCEPTED"      onClick={handleStatus}/> ACCEPTED<br/> 
+                <input type="radio" name="status" value="DENIED"        onClick={handleStatus}/> DENIED<br/> 
             </div>
 
             <div className="cmt-cnt">

@@ -16,6 +16,9 @@ input[type="radio"] {
     border-radius: 5px;
     font-size: 22px;
 }
+.checked {
+    
+}
 
 .content-container {
     display: flex;

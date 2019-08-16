@@ -88,8 +88,20 @@ app.get('/campaignSubmissions/:campaignId', (req, res) => {
     res.send(JSON.stringify({name: campaignName, subs: subs}));
 });
 
+app.get('/submission/:submissionId', (req, res) => {
+    let sub = data.get(`Submission.${req.params.submissionId}`);
+    res.send(JSON.stringify(sub));
+});
 
+app.post('/changeStatus', (req, res) => {
 
+    let file = data;
+    file.set(`Submission.${req.body.id}.status`, req.body.newStat);
+    file.save();
+
+    res.send('successfull');
+
+});
 
 
 

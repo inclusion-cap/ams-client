@@ -38,7 +38,9 @@ input[type="text"] {
 	outline: inherit;
 }
 input[type="radio"] {
-    cursor: pointer;
+	cursor: pointer;
+	/* width: inherit;
+	height: inherit; */
 }
 
 input[type="checkbox"] {

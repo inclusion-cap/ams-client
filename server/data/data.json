@@ -66,7 +66,9 @@
           "tagType": ""
         }
       ],
-      "submissions": []
+      "submissions": [
+        338840
+      ]
     }
   },
   "Submission": {
@@ -113,6 +115,34 @@
         2
       ]
     },
+    "338840": {
+      "id": 338840,
+      "campaign_id": "530663",
+      "name": "adsaad",
+      "email": "asdsa",
+      "content": [
+        {
+          "label": "Name",
+          "tagSpecifier": "input",
+          "tagType": "text",
+          "content": "adsaad"
+        },
+        {
+          "label": "Email",
+          "tagSpecifier": "input",
+          "tagType": "text",
+          "content": "asdsa"
+        },
+        {
+          "label": "Favorite quote",
+          "tagSpecifier": "textarea",
+          "tagType": "",
+          "content": ""
+        }
+      ],
+      "status": "NEW",
+      "comments": []
+    },
     "339948": {
       "id": 339948,
       "campaign_id": "1",
@@ -150,7 +180,7 @@
           "content": "asdsad"
         }
       ],
-      "status": "NEW",
+      "status": "ACCEPTED",
       "comments": []
     }
   },

@@ -39,3 +39,19 @@ export const getCampaignSubmissions = (id) => {
         method: 'GET',
     });
 };
+
+export const getSubmission = (id) => {
+    return $.ajax({
+        url: `/submission/${id}`,
+        method: 'GET',
+    });
+};
+
+export const changeStatus = (newStat) => {
+    return $.ajax({
+        url: `/changeStatus`,
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(newStat)
+    });
+};
