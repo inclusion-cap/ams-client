@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import '../../styles/form/formShow.css';
+import '../../styles/campaign/campaignShow.css';
 
 // data form:
 // {label: form.label, tagSpecifier: 'input', tagType: 'text', value: form.label} -> with value if checkbox
 
-function FormShow() {
+function CampaignShow() {
     const [state, setState] = useState([
         {
             label: 'username',
@@ -47,4 +47,4 @@ function FormShow() {
     )
 }
 
-export default FormShow;
+export default CampaignShow;

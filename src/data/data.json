@@ -1,0 +1,97 @@
+{
+    "Admin": {
+        "1": {
+            "username": "sauron",
+            "password": "saur1234",
+            "comments": [1, 2]
+        }
+    },
+    "Campaign": {
+        "1": {
+            "name": "Inclusion Application Campaign",
+            "fields": [
+                {
+                    "label": "Name",
+                    "tagSpecifier": "input", 
+                    "tagType": "text"
+                },
+                {
+                    "label": "Email",
+                    "tagSpecifier": "input", 
+                    "tagType": "text"
+                },
+                {
+                    "label": "What is your favorite quote?",
+                    "tagSpecifier": "input", 
+                    "tagType": "text"
+                },
+                {
+                    "label": "When were you born?",
+                    "tagSpecifier": "input", 
+                    "tagType": "date"
+                }, 
+                {
+                    "label": "Describe yourself in a paragraph?",
+                    "tagSpecifier": "textarea", 
+                    "tagType": ""
+                }
+            ],
+            "submissions": [1]
+        }
+        
+    },
+    "Submission": {
+        "1": {
+            "campaign_id": "1",
+            "name": "Muhamamd Omar",
+            "email": "omar@gmail.com",
+            "content": [
+                {
+                    "label": "Name",
+                    "tagSpecifier": "input", 
+                    "tagType": "text",
+                    "content": "Muhammad Omar"
+                },
+                {
+                    "label": "Email",
+                    "tagSpecifier": "input", 
+                    "tagType": "text",
+                    "content": "omar@gmail.com"
+                },
+                {
+                    "label": "What is your favorite quote?",
+                    "tagSpecifier": "input", 
+                    "tagType": "text",
+                    "content": "The mind is its own place, and in itself, can make a heaven out of hell, a hell out of heaven."
+                },
+                {
+                    "label": "When were you born?",
+                    "tagSpecifier": "input", 
+                    "tagType": "date",
+                    "content": "1998-2-3"
+                }, 
+                {
+                    "label": "Describe yourself in a paragraph?",
+                    "tagSpecifier": "textarea", 
+                    "tagType": "",
+                    "content": "My name is Omar and ..."
+                }
+            ],
+            "status": "NEW",
+            "comments": [1, 2]
+        }
+
+    },
+    "Comment": {
+        "1": {
+            "admin_id": "1",
+            "submission_id": "1",
+            "body": "this is alright"
+        },
+        "2": {
+            "admin_id": "1",
+            "submission_id": "1",
+            "body": "Could be better"
+        }
+    }
+}

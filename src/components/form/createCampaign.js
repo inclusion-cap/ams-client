@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import '../../styles/form/createForm.css';
+import '../../styles/campaign/createCampaign.css';
 
-function CreateForm() {
+function CreateCampaign() {
     const [options, setOptions] = useState([]);
     const [form, setForm] = useState({label: '', option: ''});
     const [inputTypeTranslator] = useState({
@@ -35,6 +35,7 @@ function CreateForm() {
     function onChange(type) {
         return (e) => {
           setForm({...form, [type]: e.target.value});
+          console.log(e.target.value)
         };
     }
 
@@ -76,7 +77,6 @@ function CreateForm() {
                     <option value="checkbox">Checkbox</option>
                     <option value="date">Date</option>
                 </select>
-
                 <input type="submit" value="Add Option to Form" id="btn-submit"/>
             </form>
 
@@ -85,7 +85,7 @@ function CreateForm() {
     )
 }
 
-export default CreateForm;
+export default CreateCampaign;
 
 
 

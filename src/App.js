@@ -4,13 +4,13 @@ import {
   Switch,
 } from 'react-router-dom';
 import LoginFormContainer from './components/auth/loginFormContainer';
-import CreateForm from './components/form/createForm';
+import CreateCampaign from './components/form/createCampaign';
 import CampaignsAll from './components/campaigns/CampaignsAll';
 import CampaignSingle from './components/campaigns/CampaignSingle';
 import SubmissionSingle from './components/campaigns/SubmissionSingle1';
 
 import { AuthRoute, ProtectedRoute, FeedRoute } from './utils/routeUtils';
-import FormShow from './components/form/formShow';
+import CampaignShow from './components/form/campaignShow';
 
 import Navbar from './components/Navbar'
 import './styles/removeStyles.css';
@@ -24,8 +24,8 @@ class App extends Component {
         <Route component={Navbar} />
         <Switch>
           {/* <AuthRoute exact path="/" component={ LoginFormContainer } /> */}
-          <AuthRoute exact path="/formCreate" component={CreateForm} />
-          {/* <AuthRoute exact path="/" component={ FormShow } /> */}
+          <AuthRoute exact path="/formCreate" component={CreateCampaign} />
+          {/* <AuthRoute exact path="/" component={ CampaignShow } /> */}
           {/* <ProtectedRoute exact path="/campaigns" component={  } /> */}
 
           <AuthRoute exact path="/" component={LoginFormContainer} />
