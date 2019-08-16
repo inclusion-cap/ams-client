@@ -7,7 +7,7 @@ import LoginFormContainer from './components/auth/loginFormContainer';
 import CreateForm from './components/form/createForm';
 import CampaignsAll from './components/campaigns/CampaignsAll';
 import CampaignSingle from './components/campaigns/CampaignSingle';
-import SubmissionSingle from './components/campaigns/SubmissionSingle';
+import SubmissionSingle from './components/campaigns/SubmissionSingle1';
 
 import { AuthRoute, ProtectedRoute, FeedRoute } from './utils/routeUtils';
 import FormShow from './components/form/formShow';
@@ -20,7 +20,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
+        <Route component={Navbar} />
         <Switch>
           {/* <AuthRoute exact path="/" component={ LoginFormContainer } /> */}
           <AuthRoute exact path="/formCreate" component={CreateForm} />

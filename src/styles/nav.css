@@ -1,6 +1,10 @@
 #nav-bar {
   display: flex;
   flex-direction: row-reverse;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 15px;
+  border: 1px solid white;
 }
 
 #nav-bar > a {

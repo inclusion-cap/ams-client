@@ -38,7 +38,7 @@ const Protected = ({ component: Component, path, loggedIn }) => {
             return loggedIn ? (
             <Component {...props} x="s"/>)
              : 
-             (<Redirect to="/login" />)
+             (<Redirect to="/" />)
         }}
     />)
     return retVal;
