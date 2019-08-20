@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -23,15 +23,15 @@ function CampaignsAll(props) {
 
   }, []);
 
-  
+
   const mapCampaigns = campaigns.map(c => (
     <div className="div-link" key={c.id}>
-      <Link to={{pathname: `/campaigns/${c.id}`, state: {name: c.name}}} >
+      <Link to={{ pathname: `/campaigns/${c.id}`, state: { name: c.name } }} >
         <h2>{c.name}</h2>
         <p>Submissions: {c.submissions.length}</p>
       </Link>
       <div >
-        <a className="a-link" href={`http://localhost:3000/#/campaignForm/${c.id}`}>Campaign Link</a>
+        <a className="a-link" href={`http://localhost:3001/#/campaignForm/${c.id}`}>Campaign Link</a>
       </div>
     </div>));
 
